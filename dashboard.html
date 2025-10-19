@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome to Your Course Dashboard</h2>
+    <p id="user-email"></p>
+
+    <h3>Trading 101: Beginner Course</h3>
+    <ul id="chapters">
+      <li>
+        Chapter 1: Introduction
+        <button onclick="completeChapter(1)">Mark as Complete</button>
+      </li>
+      <li>
+        Chapter 2: Risk Management
+        <button onclick="completeChapter(2)">Mark as Complete</button>
+      </li>
+      <li>
+        Chapter 3: Technical Basics
+        <button onclick="completeChapter(3)">Mark as Complete</button>
+      </li>
+    </ul>
+
+    <p><a href="index.html">Logout</a></p>
+    <p><a href="quiz.html"><button>Take Quiz</button></a></p>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

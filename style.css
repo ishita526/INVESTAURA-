@@ -1,0 +1,773 @@
+/* ===== GLOBAL STYLES ===== */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F8F9FA; 
+    color: #212529;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #CED4DA; 
+    border-radius: 5px;
+}
+
+/* ===== FORM & QUIZ CONTAINERS ===== */
+.container, .quiz-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.option-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: #E9ECEF;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.option-btn:hover {
+    background: #DEE2E6;
+}
+
+/* ===== HEADER ROW 1 ===== */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background: #ffffff;
+    border-bottom: 1px solid #E9ECEF;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo img {
+    height: 50px;
+    width: fit-content;
+}
+
+.brand-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #212529;
+}
+
+.tagline {
+    font-size: 1rem;
+    font-style: italic;
+    align-items: last baseline;
+    margin-left: 8px;
+    color: #6C757D;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn.primary {
+    /* Updated to a rich, deep green */
+    background: #276B37;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn.primary:hover {
+    background: #1D5427;
+}
+
+.btn.secondary {
+    /* Updated to a ghost button with a deep green border */
+    border: 2px solid #276B37;
+    color: #276B37;
+    background: transparent;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn.secondary:hover {
+    background: #276B37;
+    color: white;
+}
+
+/* ===== HEADER ROW 2 ===== */
+.mode-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 8px 40px;
+    border-bottom: 1px solid #E9ECEF;
+    gap: 15px;
+}
+
+.mode-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    padding: 1px 3px;
+    border: 1px solid #CED4DA;
+    width: 200px;
+    height: 40px;
+    transition: border-color 0.2s;
+}
+
+.search-bar:focus-within {
+    /* Updated focus state to the deep green */
+    border-color: #276B37;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    font-size: 0.85rem;
+    background: transparent;
+    width: 100%;
+}
+
+.search-icon {
+    margin-left: 5px;
+    color: #6C757D;
+}
+
+.mode-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mode-buttons button {
+    background: white;
+    border: 1px solid #CED4DA;
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.mode-buttons button:hover {
+    background: #E9ECEF;
+}
+
+.dark-mode-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #CED4DA;
+    background: linear-gradient(to right, #212529 50%, #F8F9FA 50%);
+    cursor: pointer;
+    position: relative;
+}
+
+.dark-mode-btn::after {
+    content: "Dark Mode";
+    position: absolute;
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #343A40;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+.dark-mode-btn:hover::after {
+    opacity: 1;
+}
+
+/* ===== HEADER ROW 3: NAV LINKS ===== */
+.nav-links {
+    display: flex;
+    justify-content: left;
+    gap: 30px;
+    background: #fff;
+    padding: 12px 40px;
+    border-bottom: 1px solid #E9ECEF;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #212529;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    /* Updated hover color to the new primary green */
+    color: #276B37;
+}
+
+/* ===== HERO ===== */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    /* Using the lighter shade from the new palette */
+    /*background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(b1.jpg);*/
+    background-image: url(b2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 15px;
+    max-width: 750px;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #276B37;
+    margin-bottom: 12px;
+    background: none; /* remove background from earlier style */
+    box-shadow: none; /* remove shadow from earlier style */
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #495057;
+    margin: 0;
+    background: none; /* remove background from earlier style */
+    box-shadow: none;
+}
+
+
+.buttons {
+    margin-top: 20px;
+}
+
+.btn-primary {
+    /* Updated to the primary deep green */
+    background: #276B37;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #1D5427;
+}
+
+.btn-secondary {
+    /* Updated to the gold accent color */
+    border: 2px solid #A1823B;
+    color: #A1823B;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #A1823B;
+    color: white;
+}
+
+/* ===== FEATURED COURSES ===== */
+.featured-courses {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.featured-courses h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    /* Updated heading color to the deep green */
+    color: #276B37;
+}
+
+.course-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.course-card {
+    background-color: #ffffff;
+    border: 1px solid #DEE2E6;
+    border-radius: 15px;
+    padding: 25px;
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.course-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    /* Updated heading color to the deep green */
+    color: #276B37;
+}
+
+.course-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #F1F3F5;
+    color: #6C757D;
+    font-size: 0.9rem;
+}
+
+/* ===== SIGN UP PAGE STYLES ===== */
+/* This section contains the CSS for the new sign-up page */
+body.signup-page {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5; /* A soft, professional background color */
+    color: #212529;
+    background-color: #CBEBCB;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* The main card/container for the form */
+.signup-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* A softer, more professional shadow */
+    text-align: center;
+}
+
+/* The main heading/title of the form */
+.signup-container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #276B37; /* The brand's deep green */
+    margin-bottom: 20px;
+}
+
+/* Label for input fields */
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+/* Styling for all input fields */
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+/* Focus state for inputs */
+.form-group input:focus {
+    outline: none;
+    border-color: #276B37;
+    box-shadow: 0 0 0 3px rgba(39, 107, 55, 0.2); /* Soft green glow */
+}
+
+/* Styling for the main button */
+.signup-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #276B37; /* Main brand green */
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 10px;
+}
+
+/* Hover and active states for the button */
+.signup-btn:hover {
+    background: #1D5427;
+    transform: translateY(-2px);
+}
+
+.signup-btn:active {
+    transform: translateY(0);
+}
+
+/* Link for login */
+.login-link {
+    margin-top: 25px;
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+.login-link a {
+    color: #A1823B; /* Brand's accent gold */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+    color: #8c7132;
+}
+
+
+/*LOGIN PAGE*/
+/* ===== LOGIN PAGE STYLES ===== */
+body.login-page {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+    color: #212529;
+    background-color: #AFE1AF;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.login-container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #276B37;
+    margin-bottom: 10px;
+}
+
+.login-container p {
+    font-size: 0.95rem;
+    color: #6C757D;
+    margin-bottom: 25px;
+}
+
+/* Form styling */
+.login-container .form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.login-container label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.login-container input:focus {
+    outline: none;
+    border-color: #276B37;
+    box-shadow: 0 0 0 3px rgba(39, 107, 55, 0.2);
+}
+
+/* Button styling */
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #276B37;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background: #1D5427;
+    transform: translateY(-2px);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+/* Link styling */
+/* === General Page Styling === */
+/* === General Page Styling === */
+body.signup-page {
+    background-color: #D0FAE5; /* light mint green background */
+    font-family: 'Poppins', sans-serif; /* clean modern font */
+    margin: 0;
+    padding: 0;
+}
+
+/* === Container === */
+/* === Container === */
+.signup-container {
+    max-width: 650px; /* increased width */
+    margin: 50px auto;
+    padding: 35px;
+    background: #ffffff; /* white card */
+    border-radius: 20px; /* more rounded corners */
+    border: 2px solid #b7d8c5; /* visible border in soft green */
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+
+/* === Heading === */
+.signup-container h2 {
+    text-align: center;
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 26px;
+    color: #2B7A4B; /* dark green for heading */
+}
+
+/* === Tagline under heading === */
+.signup-container p.tagline {
+    text-align: center;
+    color: #4e5d52;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* === Form Groups === */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #2B2B2B;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #b7d8c5;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #2B7A4B;
+    box-shadow: 0 0 5px rgba(43, 122, 75, 0.3);
+}
+
+/* === Paired Fields === */
+.form-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* === Checkbox === */
+.form-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+.form-group label a {
+    color: #2B7A4B;
+    text-decoration: none;
+}
+
+.form-group label a:hover {
+    text-decoration: underline;
+}
+
+/* === Button === */
+.signup-btn {
+    width: 100%;
+    padding: 12px;
+    background: #2B7A4B; /* deep green */
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.signup-btn:hover {
+    background: #23633d;
+    transform: translateY(-1px);
+}
+
+/* === Responsive Design === */
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+    }
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.login-link a {
+    color: #2B7A4B;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-toggle:hover {
+  background-color: #f0f0f0;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  min-width: 220px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #006400;
+  color: #fff;
+}
+
+/* Keep dropdown open on hover (optional) */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+

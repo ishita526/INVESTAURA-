@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="quiz-container">
+    <h2 id="question">Loading...</h2>
+    <div id="options"></div>
+    <button id="nextBtn">Next</button>
+    <button id="submitBtn" style="display:none;">Submit</button>
+    <p id="result"></p>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="quiz.js"></script>
+</body>
+</html>
